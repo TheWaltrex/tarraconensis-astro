@@ -39,7 +39,7 @@ const fs = require("fs");
 const path = require("path");
 
 // cheerio: parsea y manipula HTML como si fuera jQuery
-// iconv-lite: decodifica los ficheros antiguos en windows-1252
+// iconv-lite: decodifica los ficheros antiguos en ISO-8859-1 (Latin-1)
 let cheerio, iconv;
 try {
   cheerio = require("cheerio");
@@ -111,18 +111,18 @@ const PRESERVE_ATTRS = new Set([
 // ─── Utilidades ──────────────────────────────────────────────────────────────
 
 /**
- * Lee un fichero respetando su codificación.
- * Intenta detectar windows-1252 por el meta Content-Type;
- * si no lo encuentra, asume UTF-8.
+ * Lee un fichero legacy decodificándolo siempre como ISO-8859-1 (Latin-1).
+ *
+ * Los .html de 2003 están codificados en ISO-8859-1, independientemente de
+ * lo que declare (o no declare) su meta charset. Decodificarlos como UTF-8
+ * produce caracteres garbled en acentos, eñes y puntuación española.
+ * iconv-lite aliasea "latin1" → ISO-8859-1 de forma estándar.
+ *
+ * El fichero .astro resultante se escribe siempre en UTF-8 (writeFileSync).
  */
 function readLegacyFile(filePath) {
   const raw = fs.readFileSync(filePath);
-  // Detección rápida: busca charset en los primeros 512 bytes (ASCII seguro)
-  const head = raw.slice(0, 512).toString("ascii").toLowerCase();
-  if (head.includes("windows-1252") || head.includes("iso-8859-1")) {
-    return iconv.decode(raw, "windows-1252");
-  }
-  return raw.toString("utf-8");
+  return iconv.decode(raw, "latin1");
 }
 
 /**
