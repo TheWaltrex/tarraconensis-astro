@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARRACONENSIS.COM - El Imperio Romano</title>
+    <meta name="keywords" content="Tarraconensis, Hispania, Imperio_romano">
+    <meta name="description" content="El Imperio Romano">
+    <link rel="icon" href="logo_ico_tarraconensis.ico">
+    <base target="_blank">
+    
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: "Constantia", "Georgia", serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #f2d81a; /* Un toque dorado sutil al pasar el ratón */
+        }
+
+        /* --- CABECERA Y LOGO ANIMADO --- */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header-letters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2px;
+            margin-bottom: 20px;
+        }
+        .header-letters img {
+            width: 60px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        /* BARRA DE REDES SOCIALES Y SECCIONES TOP */
+        .top-bar {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+        @media (min-width: 768px) {
+            .top-bar {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        .social-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .main-title-box {
+            text-align: center;
+        }
+        .main-title-box img {
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        .main-title-box h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* --- CONTENIDO PRINCIPAL (MENÚS Y LOBA) --- */
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            align-items: center;
+        }
+        @media (min-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr auto 1fr;
+            }
+        }
+
+        /* Columnas de Menú */
+        .menu-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+        .menu-column a {
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 5px 0;
+            display: inline-block;
+        }
+        
+        /* Efecto de parpadeo moderno para "Eventos" (reemplaza al viejo <blink>) */
+        .blink-effect {
+            animation: modern-blink 2s infinite;
+        }
+        @keyframes modern-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Imagen Central (Loba) */
+        .center-image-box {
+            text-align: center;
+        }
+        .center-image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- SECCIÓN INFERIOR (IMPERIO, HISPANIA, ITALIA) --- */
+        .bottom-nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            padding: 20px 0;
+        }
+        @media (min-width: 600px) {
+            .bottom-nav {
+                flex-direction: row;
+                gap: 40px;
+            }
+        }
+        .bottom-nav a {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-family: "Arial Narrow", sans-serif;
+            font-size: 0.9rem;
+            color: #888888;
+        }
+        footer a {
+            color: #FFFFFF;
+            font-family: "Constantia", serif;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-letters">
+            <img src="Doradast.gif" alt="T">
+            <img src="Doradasa.gif" alt="A">
+            <img src="Doradasr.gif" alt="R">
+            <img src="Doradasr.gif" alt="R">
+            <img src="Doradasa.gif" alt="A">
+            <img src="Doradasc.gif" alt="C">
+            <img src="Doradaso.gif" alt="O">
+            <img src="Doradasn.gif" alt="N">
+            <img src="Doradase.gif" alt="E">
+            <img src="Doradasn.gif" alt="N">
+            <img src="Doradass.gif" alt="S">
+            <img src="Doradasi.gif" alt="I">
+            <img src="Doradass.gif" alt="S">
+        </div>
+    </header>
+
+    <section class="top-bar">
+        <div class="social-box">
+            <a href="https://www.flickr.com/photos/149147864@N02/" title="Flickr">
+                <img src="logo_flickr.jpg" width="36" height="36" alt="Flickr">
+            </a>
+            <a href="http://www.youtube.com/user/tarraconensisweb" title="YouTube">
+                <img src="logo_youtube.png" width="52" height="33" alt="YouTube">
+            </a>
+        </div>
+
+        <div class="main-title-box">
+            <img src="Imagen%20001.JPG" width="168" height="38" alt="Decoración">
+            <h1><a href="monumentosromanos.html">Monumentos</a></h1>
+        </div>
+
+        <div class="social-box">
+            <a href="http://imperiumromanorum.blogspot.com.es" title="Blog">
+                <img src="logo_blog.gif" width="51" height="33" alt="Blog">
+            </a>
+            <a href="http://www.google.com/maps/d/u/0/edit?mid=1nm-UmdgSt_vZhzZsQ4P058NawAAz-dZz&usp=sharing" title="Google Maps">
+                <img src="google-maps-2020-logo.png" width="40" height="40" alt="Google Maps">
+            </a>
+        </div>
+    </section>
+
+    <main class="main-container">
+        
+        <nav class="menu-column">
+            <a href="presentacion.html">Presentación</a>
+            <a href="iberos/losiberos.html">Íberos</a>
+            <a href="etruscos/etruscos.html">Etruscos</a>
+            <a href="roma%20antigua/roma.html">Roma</a>
+            <a href="pompei_romano/pompei_romana.html">Pompeya</a>
+            <a href="ercolano_romano/ercolano_romano.html">Herculano</a>
+            <a href="cvalenciana.html">C. Valenciana</a>
+            <a href="enruta.html">En Ruta</a>
+        </nav>
+
+        <div class="center-image-box">
+            <img src="loba_tarraconensis.jpg" width="400" height="323" alt="Loba Tarraconensis">
+        </div>
+
+        <nav class="menu-column">
+            <a href="vidaroma/vidaroma.html">La Vida Diaria</a>
+            <a href="culturaartey.html">Cultura, Arte y...</a>
+            <a href="rutas/viascomercio.html">Comercio</a>
+            <a href="ejercito/lalegion.html">Ejército</a>
+            <a href="cartografia.html">Cartografía</a>
+            <a href="cronologias.html">Cronologías</a>
+            <a href="links.html">Links</a>
+            <a class="blink-effect" href="eventos.html">Eventos</a>
+        </nav>
+
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="restoimperio.html">Imperio Romano</a>
+        <a href="hispania/laespanaromana.html">Hispania</a>
+        <a href="italia_romana.html">Italia Romana</a>
+    </nav>
+
+    <footer>
+        <p><a href="mailto:tarraconensis@tarraconensis.com">tarraconensis@tarraconensis.com</a></p>
+        <p>Tarraconensis 2003-2026 ©</p>
+    </footer>
+
+</body>
+</html>

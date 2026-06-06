@@ -1,0 +1,309 @@
+---
+const { title = "Tarraconensis" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="dark" />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header class="site-header">
+            <a href="/" class="site-logo" aria-label="Inicio — Tarraconensis"
+                >TARRACONENSIS</a
+            >
+        </header>
+
+        <main class="site-main">
+            <article class="site-content">
+                <slot />
+            </article>
+        </main>
+
+        <footer class="site-footer">
+            <p>Tarraconensis · Patrimonio romano en la Península Ibérica</p>
+        </footer>
+        <style is:global>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            :root {
+                --bg-base: #0c0c0e;
+                --bg-elevated: #141418;
+                --bg-card: #1a1a20;
+                --text-primary: #ece8e0;
+                --text-muted: #9a958c;
+                --accent: #c5a059;
+                --accent-soft: rgba(197, 160, 89, 0.14);
+                --accent-border: rgba(197, 160, 89, 0.35);
+                --accent-hover: rgba(197, 160, 89, 0.22);
+                --line: rgba(197, 160, 89, 0.12);
+                --radius: 6px;
+                --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+                --font-display: "Cinzel", Georgia, serif;
+                --content-width: min(920px, 100% - 2.5rem);
+                --header-height: 5rem;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                margin: 0;
+                min-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                background: radial-gradient(
+                        ellipse 80% 50% at 50% -20%,
+                        rgba(197, 160, 89, 0.06),
+                        transparent
+                    ),
+                    var(--bg-base);
+                color: var(--text-primary);
+                font-family: var(--font-body);
+                font-size: 1rem;
+                line-height: 1.65;
+                font-weight: 400;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: var(--header-height);
+                padding: 0 1.5rem;
+                background: rgba(12, 12, 14, 0.88);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid var(--line);
+            }
+            .site-logo {
+                font-family: var(--font-display);
+                font-size: clamp(1.25rem, 3vw, 1.75rem);
+                font-weight: 600;
+                color: var(--accent) !important;
+                letter-spacing: 0.2em;
+                text-decoration: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: none !important;
+                box-shadow: none !important;
+                transition: opacity 0.2s ease;
+            }
+            .site-logo:hover {
+                opacity: 0.85;
+            }
+            .site-main {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: 2rem 0 3rem;
+            }
+            .site-content {
+                width: var(--content-width);
+                margin: 0 auto;
+            }
+            .site-footer {
+                padding: 1.25rem 1.5rem 2rem;
+                text-align: center;
+                border-top: 1px solid var(--line);
+                color: var(--text-muted);
+                font-size: 0.8rem;
+                letter-spacing: 0.04em;
+            }
+            .site-footer p {
+                margin: 0;
+            }
+            .site-content > h1:first-of-type,
+            .site-content > hr:first-of-type {
+                display: none !important;
+            }
+            .site-content font,
+            .site-content [color],
+            .site-content b font,
+            .site-content a font {
+                color: inherit !important;
+                font-family: inherit !important;
+                font-size: inherit !important;
+            }
+            .site-content p,
+            .site-content div,
+            .site-content center {
+                max-width: 100%;
+                margin-block: 0.75rem;
+            }
+            .site-content p[align="center"],
+            .site-content center,
+            .site-content [align="center"] {
+                text-align: center;
+            }
+            .site-content p:not([align]),
+            .site-content li {
+                text-align: center;
+            }
+            .site-content h1,
+            .site-content h2,
+            .site-content h3 {
+                font-family: var(--font-display);
+                font-weight: 600;
+                color: var(--text-primary);
+                line-height: 1.25;
+                margin: 1.5rem 0 0.75rem;
+                text-align: center;
+                letter-spacing: 0.04em;
+            }
+            .site-content h1 {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+            }
+            .site-content h2 {
+                font-size: clamp(1.25rem, 3vw, 1.6rem);
+                color: var(--accent);
+            }
+            .site-content p,
+            .site-content li,
+            .site-content td,
+            .site-content th {
+                color: var(--text-primary);
+            }
+            .site-content b,
+            .site-content strong {
+                font-weight: 600;
+                color: var(--text-primary);
+            }
+            .site-content hr {
+                border: none;
+                height: 1px;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--accent-border),
+                    transparent
+                );
+                margin: 2rem auto;
+                max-width: 12rem;
+            }
+            .site-content img {
+                max-width: 100%;
+                height: auto;
+                border-radius: var(--radius);
+                display: block;
+                margin: 1rem auto;
+            }
+            .site-content a img {
+                margin: 0;
+                border-radius: var(--radius);
+                transition: transform 0.2s ease, opacity 0.2s ease;
+            }
+            .site-content a:hover img {
+                opacity: 0.92;
+                transform: scale(1.02);
+            }
+            .site-content a:not(:has(img)) {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.35rem;
+                margin: 0.35rem 0.25rem;
+                padding: 0.55rem 1.1rem;
+                font-family: var(--font-body);
+                font-size: 0.9rem;
+                font-weight: 500;
+                letter-spacing: 0.03em;
+                line-height: 1.3;
+                color: var(--accent) !important;
+                text-decoration: none !important;
+                background: var(--accent-soft);
+                border: 1px solid var(--accent-border);
+                border-radius: var(--radius);
+                transition: all 0.2s ease;
+            }
+            .site-content a:not(:has(img)):hover {
+                background: var(--accent-hover);
+                border-color: var(--accent);
+                color: #f5e6c8 !important;
+            }
+            .site-content a:not(:has(img)):active {
+                transform: translateY(1px);
+            }
+            .site-content a:has(img) {
+                display: inline-block;
+                margin: 0.25rem;
+                padding: 0;
+                border: none !important;
+                background: none !important;
+                border-radius: var(--radius);
+                vertical-align: middle;
+            }
+            .site-content a[href^="mailto:"]:not(:has(img)) {
+                font-size: 0.85rem;
+                font-weight: 400;
+                color: var(--text-muted) !important;
+                background: transparent;
+                border-color: var(--line);
+            }
+            .site-content a[href^="mailto:"]:not(:has(img)):hover {
+                color: var(--accent) !important;
+            }
+            .site-content table {
+                width: 100%;
+                max-width: 100%;
+                margin: 1.5rem auto;
+                border-collapse: collapse;
+                font-size: 0.95rem;
+            }
+            .site-content th,
+            .site-content td {
+                padding: 0.6rem 0.85rem;
+                border: 1px solid var(--line);
+                text-align: left;
+            }
+            .site-content th {
+                background: var(--bg-card);
+                color: var(--accent);
+                font-weight: 600;
+            }
+            .site-content tr:nth-child(even) td {
+                background: rgba(255, 255, 255, 0.02);
+            }
+            .site-content ul,
+            .site-content ol {
+                padding-left: 1.25rem;
+                margin: 1rem auto;
+                max-width: 36rem;
+            }
+            .site-content br + br {
+                display: none;
+            }
+            @media (min-width: 640px) {
+                .site-content p:has(a:not(:has(img))) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.15rem;
+                }
+            }
+            @media (max-width: 480px) {
+                .site-content a:not(:has(img)) {
+                    padding: 0.5rem 0.85rem;
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+    </body>
+</html>

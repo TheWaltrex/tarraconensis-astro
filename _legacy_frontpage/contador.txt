@@ -1,0 +1,12 @@
+<!-- Codigo contadorwap.com ver. 4.3 -->
+<script language=JavaScript src="http://server01.contadorwap.com/code.php?id=AT8HMFE2VjYCYg=="></script>
+<script language=JavaScript>
+  contadorwapstats("AT8HMFE2VjYCYg==",-3600,"grafico");
+</script>
+<noscript>
+<a target="_blank" href="http://www.contadorwap.com">
+<img src="http://server01.contadorwap.com/code.php?ver=noscript&zone=-3600&id=AT8HMFE2VjYCYg==&tipo=visible" border="0" nosave width="23" height="23">
+</a>
+</noscript>
+<br><font size=1><a href="http://www.contadorwap.com" target="_blank">Auditado por contadorwap.com</a></font><font size=1></font>
+<!-- FIN Codigo contadorwap.com -->
