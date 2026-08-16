@@ -1,309 +1,587 @@
 ---
-const { title = "Tarraconensis" } = Astro.props;
+interface Props {
+    title?: string;
+    description?: string;
+}
+const {
+    title = "Tarraconensis",
+    description = "Tarraconensis – Arqueología, monumentos e historia del Imperio Romano y la Hispania Romana"
+} = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/$/, "");
+const isHomeOrMenu = pathname === "" || pathname === "/menu";
 ---
 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="color-scheme" content="dark" />
-        <title>{title}</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <header class="site-header">
-            <a href="/" class="site-logo" aria-label="Inicio — Tarraconensis"
-                >TARRACONENSIS</a
-            >
-        </header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Tarraconensis, Hispania, Imperio Romano, arqueología, monumentos romanos" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="header-nav">
+            <a href="/menu" class="header-menu-link" title="Menú principal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </a>
+            <a href="/" class="site-logo">TARRACONENSIS</a>
+            <a href="/hispania/laespanaromana" class="header-section-link">Hispania</a>
+        </nav>
+    </header>
 
-        <main class="site-main">
-            <article class="site-content">
-                <slot />
-            </article>
-        </main>
+    <main class="site-main">
+        <article class="site-content">
+            <slot />
+        </article>
+    </main>
 
-        <footer class="site-footer">
-            <p>Tarraconensis · Patrimonio romano en la Península Ibérica</p>
-        </footer>
-        <style is:global>
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-            }
-            :root {
-                --bg-base: #0c0c0e;
-                --bg-elevated: #141418;
-                --bg-card: #1a1a20;
-                --text-primary: #ece8e0;
-                --text-muted: #9a958c;
-                --accent: #c5a059;
-                --accent-soft: rgba(197, 160, 89, 0.14);
-                --accent-border: rgba(197, 160, 89, 0.35);
-                --accent-hover: rgba(197, 160, 89, 0.22);
-                --line: rgba(197, 160, 89, 0.12);
-                --radius: 6px;
-                --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
-                --font-display: "Cinzel", Georgia, serif;
-                --content-width: min(920px, 100% - 2.5rem);
-                --header-height: 5rem;
-            }
-            html {
-                scroll-behavior: smooth;
-            }
-            body {
-                margin: 0;
-                min-height: 100dvh;
-                display: flex;
-                flex-direction: column;
-                background: radial-gradient(
-                        ellipse 80% 50% at 50% -20%,
-                        rgba(197, 160, 89, 0.06),
-                        transparent
-                    ),
-                    var(--bg-base);
-                color: var(--text-primary);
-                font-family: var(--font-body);
-                font-size: 1rem;
-                line-height: 1.65;
-                font-weight: 400;
-                -webkit-font-smoothing: antialiased;
-                text-rendering: optimizeLegibility;
-            }
-            .site-header {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: var(--header-height);
-                padding: 0 1.5rem;
-                background: rgba(12, 12, 14, 0.88);
-                backdrop-filter: blur(12px);
-                border-bottom: 1px solid var(--line);
-            }
-            .site-logo {
-                font-family: var(--font-display);
-                font-size: clamp(1.25rem, 3vw, 1.75rem);
-                font-weight: 600;
-                color: var(--accent) !important;
-                letter-spacing: 0.2em;
-                text-decoration: none !important;
-                border: none !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                background: none !important;
-                box-shadow: none !important;
-                transition: opacity 0.2s ease;
-            }
-            .site-logo:hover {
-                opacity: 0.85;
-            }
-            .site-main {
-                flex: 1;
-                display: flex;
-                justify-content: center;
-                width: 100%;
-                padding: 2rem 0 3rem;
-            }
-            .site-content {
-                width: var(--content-width);
-                margin: 0 auto;
-            }
-            .site-footer {
-                padding: 1.25rem 1.5rem 2rem;
-                text-align: center;
-                border-top: 1px solid var(--line);
-                color: var(--text-muted);
-                font-size: 0.8rem;
-                letter-spacing: 0.04em;
-            }
-            .site-footer p {
-                margin: 0;
-            }
-            .site-content > h1:first-of-type,
-            .site-content > hr:first-of-type {
-                display: none !important;
-            }
-            .site-content font,
-            .site-content [color],
-            .site-content b font,
-            .site-content a font {
-                color: inherit !important;
-                font-family: inherit !important;
-                font-size: inherit !important;
-            }
-            .site-content p,
-            .site-content div,
-            .site-content center {
-                max-width: 100%;
-                margin-block: 0.75rem;
-            }
-            .site-content p[align="center"],
-            .site-content center,
-            .site-content [align="center"] {
-                text-align: center;
-            }
-            .site-content p:not([align]),
-            .site-content li {
-                text-align: center;
-            }
-            .site-content h1,
-            .site-content h2,
-            .site-content h3 {
-                font-family: var(--font-display);
-                font-weight: 600;
-                color: var(--text-primary);
-                line-height: 1.25;
-                margin: 1.5rem 0 0.75rem;
-                text-align: center;
-                letter-spacing: 0.04em;
-            }
-            .site-content h1 {
-                font-size: clamp(1.5rem, 4vw, 2rem);
-            }
-            .site-content h2 {
-                font-size: clamp(1.25rem, 3vw, 1.6rem);
-                color: var(--accent);
-            }
-            .site-content p,
-            .site-content li,
-            .site-content td,
-            .site-content th {
-                color: var(--text-primary);
-            }
-            .site-content b,
-            .site-content strong {
-                font-weight: 600;
-                color: var(--text-primary);
-            }
-            .site-content hr {
-                border: none;
-                height: 1px;
-                background: linear-gradient(
-                    90deg,
-                    transparent,
-                    var(--accent-border),
-                    transparent
-                );
-                margin: 2rem auto;
-                max-width: 12rem;
-            }
-            .site-content img {
-                max-width: 100%;
-                height: auto;
-                border-radius: var(--radius);
-                display: block;
-                margin: 1rem auto;
-            }
-            .site-content a img {
-                margin: 0;
-                border-radius: var(--radius);
-                transition: transform 0.2s ease, opacity 0.2s ease;
-            }
-            .site-content a:hover img {
-                opacity: 0.92;
-                transform: scale(1.02);
-            }
-            .site-content a:not(:has(img)) {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.35rem;
-                margin: 0.35rem 0.25rem;
-                padding: 0.55rem 1.1rem;
-                font-family: var(--font-body);
-                font-size: 0.9rem;
-                font-weight: 500;
-                letter-spacing: 0.03em;
-                line-height: 1.3;
-                color: var(--accent) !important;
-                text-decoration: none !important;
-                background: var(--accent-soft);
-                border: 1px solid var(--accent-border);
-                border-radius: var(--radius);
-                transition: all 0.2s ease;
-            }
-            .site-content a:not(:has(img)):hover {
-                background: var(--accent-hover);
-                border-color: var(--accent);
-                color: #f5e6c8 !important;
-            }
-            .site-content a:not(:has(img)):active {
-                transform: translateY(1px);
-            }
-            .site-content a:has(img) {
-                display: inline-block;
-                margin: 0.25rem;
-                padding: 0;
-                border: none !important;
-                background: none !important;
-                border-radius: var(--radius);
-                vertical-align: middle;
-            }
-            .site-content a[href^="mailto:"]:not(:has(img)) {
-                font-size: 0.85rem;
-                font-weight: 400;
-                color: var(--text-muted) !important;
-                background: transparent;
-                border-color: var(--line);
-            }
-            .site-content a[href^="mailto:"]:not(:has(img)):hover {
-                color: var(--accent) !important;
-            }
-            .site-content table {
-                width: 100%;
-                max-width: 100%;
-                margin: 1.5rem auto;
-                border-collapse: collapse;
-                font-size: 0.95rem;
-            }
-            .site-content th,
-            .site-content td {
-                padding: 0.6rem 0.85rem;
-                border: 1px solid var(--line);
-                text-align: left;
-            }
-            .site-content th {
-                background: var(--bg-card);
-                color: var(--accent);
-                font-weight: 600;
-            }
-            .site-content tr:nth-child(even) td {
-                background: rgba(255, 255, 255, 0.02);
-            }
-            .site-content ul,
-            .site-content ol {
-                padding-left: 1.25rem;
-                margin: 1rem auto;
-                max-width: 36rem;
-            }
-            .site-content br + br {
-                display: none;
-            }
-            @media (min-width: 640px) {
-                .site-content p:has(a:not(:has(img))) {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 0.15rem;
-                }
-            }
-            @media (max-width: 480px) {
-                .site-content a:not(:has(img)) {
-                    padding: 0.5rem 0.85rem;
-                    font-size: 0.85rem;
-                }
-            }
-        </style>
-    </body>
+    {!isHomeOrMenu && (
+        <nav class="site-menu-btn">
+            <a href="/menu">MENÚ</a>
+        </nav>
+    )}
+
+    <footer class="site-footer">
+        <p>Tarraconensis · Patrimonio romano en la Península Ibérica</p>
+    </footer>
+
+    <style is:global>
+
+    /* =====================================================
+       RESET COMPLETO
+    ===================================================== */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+    :root {
+        --gold:   #c5a059;
+        --gold-l: #f0d595;
+        --gold-a: rgba(197,160,89,.12);
+        --gold-b: rgba(197,160,89,.22);
+        --gold-c: rgba(197,160,89,.40);
+        --bg:     #0c0c0e;
+        --card:   #13131a;
+        --card-h: #1a1a24;
+        --fg:     #e4ddd1;
+        --fgd:    #a49a8a;
+        --fgm:    #6b6358;
+        --f:      "DM Sans", system-ui, sans-serif;
+        --ft:     "Cinzel", Georgia, serif;
+        --radius: 8px;
+        --transition: .2s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* =====================================================
+       BODY
+    ===================================================== */
+    body {
+        background: var(--bg);
+        background-image: radial-gradient(ellipse 80% 40% at 50% -5%,
+            rgba(197,160,89,.05), transparent);
+        color: var(--fg);
+        font-family: var(--f);
+        font-size: 16px;
+        line-height: 1.7;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 56px;
+        padding: 0 24px;
+        background: rgba(12,12,14,.94);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(197,160,89,.15);
+    }
+
+    .header-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .site-logo {
+        font-family: var(--ft);
+        font-size: clamp(14px, 2.8vw, 20px);
+        font-weight: 600;
+        letter-spacing: .22em;
+        color: var(--gold);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: opacity var(--transition);
+    }
+    .site-logo:hover { opacity: .7; }
+
+    .header-menu-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--fgd);
+        text-decoration: none;
+        padding: 6px;
+        border-radius: 6px;
+        transition: color var(--transition), background var(--transition);
+    }
+    .header-menu-link:hover {
+        color: var(--gold);
+        background: rgba(197,160,89,.08);
+    }
+
+    .header-section-link {
+        font-family: var(--ft);
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--fgm);
+        text-decoration: none;
+        transition: color var(--transition);
+    }
+    .header-section-link:hover {
+        color: var(--gold);
+    }
+
+    /* =====================================================
+       MAIN WRAPPER
+    ===================================================== */
+    .site-main {
+        flex: 1;
+        width: 100%;
+        /* Padding horizontal fluido — 16px mínimo, nunca más de 40px */
+        padding: 36px max(16px, calc(50% - 460px)) 60px;
+    }
+
+    .site-content {
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* =====================================================
+       BOTÓN MENÚ — pequeño, limpio y centrado al final
+    ===================================================== */
+    .site-menu-btn {
+        text-align: center;
+        padding: 18px 0 6px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .site-menu-btn a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--ft);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        background: rgba(197,160,89,.05);
+        border: 1px solid rgba(197,160,89,.22);
+        border-radius: 4px;
+        padding: 6px 20px;
+        transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+    }
+    .site-menu-btn a:hover {
+        background: rgba(197,160,89,.14);
+        border-color: rgba(197,160,89,.45);
+        color: var(--gold-l);
+        transform: translateY(-1px);
+    }
+
+    /* Ocultar enlaces de menú legacy duplicados en el contenido */
+    .site-content a[href="/menu"],
+    .site-content a[href="/menu/"],
+    .site-content a[href="/menu.html"],
+    .site-content a[href="menu.html"],
+    .site-content a[href="menu"] {
+        display: none !important;
+    }
+    .site-content .migrated-cell:has(a[href*="menu"]:only-child),
+    .site-content .migrated-cell:has(p:has(a[href*="menu"]:only-child):only-child),
+    .site-content .migrated-cell:has(b:has(a[href*="menu"]:only-child):only-child),
+    .site-content .migrated-cell:has(p:has(b:has(a[href*="menu"]:only-child)):only-child) {
+        display: none !important;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    .site-footer {
+        text-align: center;
+        padding: 20px 24px;
+        border-top: 1px solid rgba(197,160,89,.12);
+        color: var(--fgm);
+        font-size: 12px;
+        letter-spacing: .07em;
+        text-transform: uppercase;
+    }
+    .site-footer p { margin: 0; }
+
+    /* =====================================================
+       IMÁGENES — siempre fluidas
+    ===================================================== */
+    .site-content img {
+        max-width: 100%;
+        height: auto;
+        width: auto;
+        display: block;
+        border-radius: var(--radius);
+        margin-top: 12px;
+        margin-bottom: 12px;
+        margin-left: auto;
+        margin-right: auto;
+        transition: opacity var(--transition), transform var(--transition);
+    }
+
+    /* =====================================================
+       TIPOGRAFÍA BASE
+    ===================================================== */
+    .site-content h1,
+    .site-content h2,
+    .site-content h3 {
+        font-family: var(--ft);
+        font-weight: 600;
+        line-height: 1.25;
+        text-align: center;
+        letter-spacing: .04em;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    /* El primer h1 del legacy se oculta */
+    .site-content > h1:first-child,
+    .site-content > div > h1:first-child,
+    .site-content > hr:first-child { display: none; }
+
+    .site-content h1 {
+        font-size: clamp(1.25rem, 4vw, 1.8rem);
+        color: var(--fg);
+        margin: 1.75rem 0 .8rem;
+    }
+
+    .site-content h2 {
+        font-size: clamp(1.05rem, 3vw, 1.4rem);
+        color: var(--gold);
+        margin: 1.5rem 0 .6rem;
+        position: relative;
+        padding-bottom: .5rem;
+    }
+    /* Decoración dorada sutil bajo h2 */
+    .site-content h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        border-radius: 1px;
+    }
+
+    .site-content h3 {
+        font-size: clamp(.9rem, 2.5vw, 1.15rem);
+        color: var(--fgd);
+        margin: 1.25rem 0 .5rem;
+    }
+
+    /* Párrafos — lectura de libro / revista corrida a todo el ancho */
+    .site-content p {
+        margin: 0 0 1.1rem;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+        color: var(--fg);
+        text-align: justify;
+        text-justify: inter-word;
+        text-align-last: left;
+        line-height: 1.8;
+    }
+
+    /* Centro heredado del HTML del legacy */
+    .site-content p[align="center"],
+    .site-content center,
+    .site-content [align="center"] {
+        text-align: center;
+        text-align-last: center;
+    }
+
+    .site-content b, .site-content strong { font-weight: 600; }
+    .site-content i, .site-content em    { color: var(--fgd); font-style: italic; }
+
+    /* =====================================================
+       SEPARADORES
+    ===================================================== */
+    .site-content hr {
+        border: none;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(197,160,89,.25), transparent);
+        margin: 2rem auto;
+        max-width: 80px;
+    }
+
+    /* =====================================================
+       ENLACES
+    ===================================================== */
+    .site-content a {
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(197,160,89,.3);
+        padding-bottom: 1px;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        transition: color var(--transition), border-color var(--transition);
+    }
+    .site-content a:hover {
+        color: var(--gold-l);
+        border-bottom-color: var(--gold-l);
+    }
+
+    /* Links con imagen: sin subrayado */
+    .site-content a:has(img) {
+        border-bottom: none;
+        display: inline-block;
+        padding: 0;
+    }
+    .site-content a:has(img) img {
+        transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .site-content a:has(img):hover img {
+        opacity: .88;
+        transform: scale(1.02);
+        box-shadow: 0 4px 20px rgba(197,160,89,.15);
+    }
+
+    .site-content a[href^="mailto:"] {
+        color: var(--fgm);
+        font-size: .875rem;
+        border-bottom-color: rgba(107,99,88,.3);
+    }
+
+    /* =====================================================
+       TABLAS DE DATOS
+    ===================================================== */
+    .site-content table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: .9rem;
+        margin: 1.5rem 0;
+        /* Scroll horizontal en pantallas pequeñas */
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    /* Restaurar display de partes internas */
+    .site-content thead,
+    .site-content tbody,
+    .site-content tfoot   { display: table-header-group; }
+    .site-content tbody   { display: table-row-group; }
+    .site-content tr      { display: table-row; }
+    .site-content th,
+    .site-content td {
+        display: table-cell;
+        padding: 8px 12px;
+        border: 1px solid rgba(197,160,89,.18);
+        text-align: left;
+        vertical-align: top;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    .site-content th {
+        background: var(--card);
+        color: var(--gold);
+        font-weight: 600;
+        font-family: var(--ft);
+        font-size: .8rem;
+        letter-spacing: .04em;
+    }
+    .site-content tr:nth-child(even) td {
+        background: rgba(255,255,255,.016);
+    }
+
+    /* =====================================================
+       ESTRUCTURA DE CONTENIDOS MIGRADOS (.migrated-layout)
+       - Texto corrido en horizontal al 100% de ancho (libro/revista)
+       - Enlaces y botones en cuadrícula horizontal limpia y centrada
+       - Imágenes centradas y alineadas
+    ===================================================== */
+    .site-content .migrated-layout {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        align-items: center;
+        margin: 16px 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .site-content .migrated-cell {
+        flex: 0 1 auto;
+        min-width: 0;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    /* Celdas con texto o párrafos: ocupan el 100% del ancho para lectura corrida */
+    .site-content .migrated-cell:has(p),
+    .site-content .migrated-cell:has(br),
+    .site-content .migrated-cell:has(i) {
+        flex: 1 1 100%;
+        width: 100%;
+        text-align: justify;
+        text-justify: inter-word;
+        text-align-last: left;
+    }
+
+    /* Excepción: celdas con un único link corto o título breve centrado */
+    .site-content .migrated-cell:has(> b > a:only-child),
+    .site-content .migrated-cell:has(> p > b > a:only-child),
+    .site-content .migrated-cell:has(> a:only-child) {
+        flex: 0 1 auto;
+        text-align: center;
+        text-align-last: center;
+    }
+
+    /* Celda que solo contiene imagen: centrada */
+    .site-content .migrated-cell:has(img:only-child),
+    .site-content .migrated-cell:has(p:has(img:only-child)) {
+        flex: 1 1 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Párrafos dentro de celdas */
+    .site-content .migrated-cell > p {
+        margin-bottom: .8rem;
+    }
+    .site-content .migrated-cell > p[align="center"] {
+        text-align: center;
+        text-align-last: center;
+    }
+
+
+
+    /* =====================================================
+       LISTAS
+    ===================================================== */
+    .site-content ul,
+    .site-content ol {
+        padding-left: 1.4rem;
+        margin: .75rem 0;
+    }
+    .site-content li { margin-bottom: .2rem; }
+
+    /* =====================================================
+       LIMPIEZA HTML LEGACY
+    ===================================================== */
+    .site-content o\:p       { display: none; }
+    .site-content .MsoNormal { margin: 0; min-height: 0; }
+    .site-content span:empty { display: none; }
+    .site-content font       { color: inherit; font-family: inherit; font-size: inherit; }
+
+    .site-content br + br    { display: none; }
+
+    /* =====================================================
+       ANIMACIÓN BLINK
+    ===================================================== */
+    .blink-effect {
+        animation: blink 2.5s ease-in-out infinite;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50%       { opacity: .25; }
+    }
+
+    /* =====================================================
+       SELECTION
+    ===================================================== */
+    ::selection {
+        background: rgba(197,160,89,.3);
+        color: var(--fg);
+    }
+
+    /* =====================================================
+       SCROLLBAR
+    ===================================================== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb {
+        background: rgba(197,160,89,.2);
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(197,160,89,.35); }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 600px) {
+        body { font-size: 15px; }
+
+        .site-main {
+            padding: 20px 16px 48px;
+        }
+
+        .header-section-link { display: none; }
+
+        /* En móvil todas las celdas migradas van a 100% */
+        .site-content .migrated-cell {
+            flex-basis: 100%;
+        }
+    }
+
+    @media (max-width: 380px) {
+        body { font-size: 14px; }
+        .site-main { padding: 16px 12px 40px; }
+    }
+
+    </style>
+</body>
 </html>

@@ -2,88 +2,452 @@
 import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="TARRACONENSIS.COM - El Imperio Romano">
-  <header>
-   <div class="header-letters">
-   <img src="/images/Doradast.gif" alt="T">
-   <img src="/images/Doradasa.gif" alt="A">
-   <img src="/images/Doradasr.gif" alt="R">
-   <img src="/images/Doradasr.gif" alt="R">
-   <img src="/images/Doradasa.gif" alt="A">
-   <img src="/images/Doradasc.gif" alt="C">
-   <img src="/images/Doradaso.gif" alt="O">
-   <img src="/images/Doradasn.gif" alt="N">
-   <img src="/images/Doradase.gif" alt="E">
-   <img src="/images/Doradasn.gif" alt="N">
-   <img src="/images/Doradass.gif" alt="S">
-   <img src="/images/Doradasi.gif" alt="I">
-   <img src="/images/Doradass.gif" alt="S">
-   </div>
-   </header>
-  
-   <section class="top-bar">
-   <div class="social-box">
-   <a href="https://www.flickr.com/photos/149147864@N02/" title="Flickr">
-   <img src="/images/logo_flickr.jpg" alt="Flickr">
-   </a>
-   <a href="http://www.youtube.com/user/tarraconensisweb" title="YouTube">
-   <img src="/images/logo_youtube.png" alt="YouTube">
-   </a>
-   </div>
-  
-   <div class="main-title-box">
-   <img src="/images/Imagen 001.JPG" alt="DecoraciÃ³n">
-   <h1><a href="/monumentosromanos">Monumentos</a></h1>
-   </div>
-  
-   <div class="social-box">
-   <a href="http://imperiumromanorum.blogspot.com.es" title="Blog">
-   <img src="/images/logo_blog.gif" alt="Blog">
-   </a>
-   <a href="http://www.google.com/maps/d/u/0/edit?mid=1nm-UmdgSt_vZhzZsQ4P058NawAAz-dZz&amp;usp=sharing" title="Google Maps">
-   <img src="/images/google-maps-2020-logo.png" alt="Google Maps">
-   </a>
-   </div>
-   </section>
-  
-   <main class="main-container">
-   
-   <nav class="menu-column">
-   <a href="/presentacion">PresentaciÃ³n</a>
-   <a href="/iberos/losiberos">Ãberos</a>
-   <a href="/etruscos/etruscos">Etruscos</a>
-   <a href="/roma%20antigua/roma">Roma</a>
-   <a href="/pompei_romano/pompei_romana">Pompeya</a>
-   <a href="/ercolano_romano/ercolano_romano">Herculano</a>
-   <a href="/cvalenciana">C. Valenciana</a>
-   <a href="/enruta">En Ruta</a>
-   </nav>
-  
-   <div class="center-image-box">
-   <img src="/images/loba_tarraconensis.jpg" alt="Loba Tarraconensis">
-   </div>
-  
-   <nav class="menu-column">
-   <a href="/vidaroma/vidaroma">La Vida Diaria</a>
-   <a href="/culturaartey">Cultura, Arte y...</a>
-   <a href="/rutas/viascomercio">Comercio</a>
-   <a href="/ejercito/lalegion">EjÃ©rcito</a>
-   <a href="/cartografia">CartografÃ­a</a>
-   <a href="/cronologias">CronologÃ­as</a>
-   <a href="/links">Links</a>
-   <a class="blink-effect" href="/eventos">Eventos</a>
-   </nav>
-  
-   </main>
-  
-   <nav class="bottom-nav">
-   <a href="/restoimperio">Imperio Romano</a>
-   <a href="/hispania/laespanaromana">Hispania</a>
-   <a href="/italia_romana">Italia Romana</a>
-   </nav>
-  
-   <footer>
-   <p><a href="mailto:tarraconensis@tarraconensis.com">tarraconensis@tarraconensis.com</a></p>
-   <p>Tarraconensis 2003-2026 Â©</p>
-   </footer>
+<Layout title="TARRACONENSIS.COM - El Imperio Romano" description="Tarraconensis – Arqueología, monumentos e historia del Imperio Romano en Hispania y el Mediterráneo">
+<div class="pg">
+
+  <!-- ══ LETRAS DORADAS DECORATIVAS ═══════════════ -->
+  <div class="golden-letters" aria-hidden="true">
+    <img src="/images/Doradast.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasa.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasr.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasr.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasa.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasc.gif" alt="" width="60" height="55">
+    <img src="/images/Doradaso.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasn.gif" alt="" width="60" height="55">
+    <img src="/images/Doradase.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasn.gif" alt="" width="60" height="55">
+    <img src="/images/Doradass.gif" alt="" width="60" height="55">
+    <img src="/images/Doradasi.gif" alt="" width="60" height="55">
+    <img src="/images/Doradass.gif" alt="" width="60" height="55">
+  </div>
+
+  <!-- ══ SOCIAL ══════════════════════════════════ -->
+  <div class="social-row">
+    <a href="https://www.flickr.com/photos/149147864@N02/" target="_blank" rel="noopener" title="Flickr">
+      <img src="/images/logo_flickr.jpg" alt="Flickr">
+    </a>
+    <a href="http://www.youtube.com/user/tarraconensisweb" target="_blank" rel="noopener" title="YouTube">
+      <img src="/images/logo_youtube.png" alt="YouTube">
+    </a>
+    <div class="social-divider"></div>
+    <a href="http://imperiumromanorum.blogspot.com.es" target="_blank" rel="noopener" title="Blog">
+      <img src="/images/logo_blog.gif" alt="Blog">
+    </a>
+    <a href="http://www.google.com/maps/d/u/0/edit?mid=1nm-UmdgSt_vZhzZsQ4P058NawAAz-dZz&usp=sharing" target="_blank" rel="noopener" title="Google Maps">
+      <img src="/images/google-maps-2020-logo.png" alt="Google Maps">
+    </a>
+  </div>
+
+  <!-- ══ MONUMENTOS CTA ════════════════════════════ -->
+  <div class="cta-row">
+    <a class="hero-cta" href="/monumentosromanos">
+      <img src="/images/Imagen 001.JPG" alt="">
+      <span>Monumentos Romanos</span>
+    </a>
+  </div>
+
+  <!-- ══ CONTENIDO PRINCIPAL: 3 COLUMNAS ═══════════ -->
+  <div class="divider"></div>
+
+  <div class="main-three-col">
+    <!-- Menú izquierda -->
+    <nav class="nav-col">
+      <a href="/presentacion">Presentación</a>
+      <a href="/iberos/losiberos">Íberos</a>
+      <a href="/etruscos/etruscos">Etruscos</a>
+      <a href="/roma%20antigua/roma">Roma</a>
+      <a href="/pompei_romano/pompei_romana">Pompeya</a>
+      <a href="/ercolano_romano/ercolano_romano">Herculano</a>
+      <a href="/cvalenciana">C. Valenciana</a>
+      <a href="/enruta">En Ruta</a>
+    </nav>
+
+    <!-- Loba central -->
+    <div class="center-image">
+      <img class="wolf" src="/images/loba_tarraconensis.jpg" alt="Loba Capitolina – Tarraconensis">
+      <p class="hero-label">Arqueología · Monumentos · Historia</p>
+    </div>
+
+    <!-- Menú derecha -->
+    <nav class="nav-col">
+      <a href="/vidaroma/vidaroma">La Vida Diaria</a>
+      <a href="/culturaartey">Cultura, Arte y…</a>
+      <a href="/rutas/viascomercio">Comercio</a>
+      <a href="/ejercito/lalegion">Ejército</a>
+      <a href="/cartografia">Cartografía</a>
+      <a href="/cronologias">Cronologías</a>
+      <a href="/links">Links</a>
+      <a href="/eventos" class="nav-eventos">Eventos ✦</a>
+    </nav>
+  </div>
+
+  <!-- ══ SECCIONES GRANDES ═══════════════════════ -->
+  <div class="divider"></div>
+
+  <nav class="sections">
+    <a href="/restoimperio">Imperio Romano</a>
+    <a href="/hispania/laespanaromana">Hispania</a>
+    <a href="/italia_romana">Italia Romana</a>
+  </nav>
+
+  <div class="divider"></div>
+
+  <!-- ══ PIE ═════════════════════════════════════ -->
+  <footer class="foot">
+    <a href="mailto:tarraconensis@tarraconensis.com">tarraconensis@tarraconensis.com</a>
+    <span>Tarraconensis 2003–2026 ©</span>
+  </footer>
+
+</div>
 </Layout>
+
+<style>
+
+/* ─── Contenedor raíz ─────────────────────── */
+.pg {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ─── Letras doradas decorativas ─────────── */
+.golden-letters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 20px 0 8px;
+}
+
+.golden-letters img {
+  width: clamp(32px, 5vw, 55px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  border-radius: 0;
+  filter: brightness(1.1);
+  transition: transform .3s cubic-bezier(.4,0,.2,1), filter .3s;
+}
+
+.golden-letters:hover img {
+  filter: brightness(1.3);
+}
+
+.golden-letters img:hover {
+  transform: translateY(-3px) scale(1.1);
+}
+
+/* ─── Fila de redes sociales ──────────────── */
+.social-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0 16px;
+}
+
+.social-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(197,160,89,.2);
+}
+
+.social-row a {
+  border-bottom: none;
+  display: inline-flex;
+  padding: 0;
+  opacity: .75;
+  transition: opacity .2s, transform .18s;
+}
+.social-row a:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.social-row img {
+  height: 32px;
+  width: auto;
+  display: block;
+  margin: 0;
+  border-radius: 4px;
+}
+
+/* ─── CTA Monumentos ─────────────────────── */
+.cta-row {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 16px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: rgba(197,160,89,.06);
+  border: 1px solid rgba(197,160,89,.2);
+  border-radius: 10px;
+  text-decoration: none;
+  color: #e4ddd1;
+  transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
+}
+.hero-cta:hover {
+  background: rgba(197,160,89,.12);
+  border-color: rgba(197,160,89,.45);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(197,160,89,.1);
+}
+.hero-cta img {
+  height: 36px;
+  width: auto;
+  display: block;
+  margin: 0;
+  opacity: .85;
+  border-radius: 4px;
+}
+.hero-cta span {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(13px, 2.5vw, 17px);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #c5a059;
+  white-space: nowrap;
+}
+
+/* ─── Separador ───────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197,160,89,.2), transparent);
+  margin: 4px 0;
+}
+
+/* ─── LAYOUT 3 COLUMNAS (original) ────────── */
+.main-three-col {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+  padding: 8px 0;
+}
+
+/* Columnas de navegación */
+.nav-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-col a {
+  display: block;
+  padding: 10px 20px;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 400;
+  color: #c8c0b0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(197,160,89,.07);
+  background: transparent;
+  text-align: center;
+  transition: color .15s, background .15s, padding-left .15s, transform .15s;
+}
+
+.nav-col a:last-child {
+  border-bottom: none;
+}
+
+.nav-col a:hover {
+  color: #c5a059;
+  background: rgba(197,160,89,.06);
+}
+
+/* Columna izquierda: texto alineado a la derecha */
+.main-three-col .nav-col:first-child a {
+  text-align: right;
+  padding-right: 24px;
+}
+.main-three-col .nav-col:first-child a:hover {
+  padding-right: 18px;
+}
+
+/* Columna derecha: texto alineado a la izquierda */
+.main-three-col .nav-col:last-child a {
+  text-align: left;
+  padding-left: 24px;
+}
+.main-three-col .nav-col:last-child a:hover {
+  padding-left: 30px;
+}
+
+/* Eventos: blink dorado */
+.nav-eventos {
+  color: #c5a059;
+  font-weight: 500;
+  animation: bl 2.5s ease-in-out infinite;
+}
+@keyframes bl {
+  0%,100% { opacity: 1; }
+  50%      { opacity: .3; }
+}
+
+/* ─── Imagen central (Loba) ───────────────── */
+.center-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px;
+}
+
+.wolf {
+  width: clamp(180px, 25vw, 300px);
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 1px rgba(197,160,89,.2),
+    0 8px 36px rgba(0,0,0,.6);
+  transition: box-shadow .3s, transform .3s;
+}
+.wolf:hover {
+  box-shadow:
+    0 0 0 1px rgba(197,160,89,.3),
+    0 12px 48px rgba(0,0,0,.7),
+    0 0 30px rgba(197,160,89,.06);
+  transform: scale(1.02);
+}
+
+.hero-label {
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(197,160,89,.6);
+  margin: 0;
+  text-align: center;
+}
+
+/* ─── Secciones principales ───────────────── */
+.sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 8px 0;
+}
+
+.sections a {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(12px, 2vw, 15px);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #d6cfc3;
+  text-decoration: none;
+  border: none;
+  padding: 14px clamp(16px, 4vw, 40px);
+  transition: color .18s, transform .18s;
+  position: relative;
+}
+
+/* Separadores entre secciones */
+.sections a:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(197,160,89,.2);
+}
+
+.sections a:hover {
+  color: #c5a059;
+  transform: translateY(-1px);
+}
+
+/* ─── Pie ─────────────────────────────────── */
+.foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 20px 0 4px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b6358;
+}
+
+.foot a {
+  color: #6b6358;
+  border: none;
+  text-decoration: none;
+  transition: color .15s;
+}
+.foot a:hover { color: #c5a059; }
+
+/* ─── RESPONSIVE ──────────────────────────── */
+
+/* Tablet: colapsar a 1 columna */
+@media (max-width: 768px) {
+  .main-three-col {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Reordenar: loba primero, luego los dos menús */
+  .center-image { order: -1; }
+
+  .wolf {
+    width: min(220px, 55vw);
+  }
+
+  /* Menús apilados: ambos centrados */
+  .main-three-col .nav-col:first-child a,
+  .main-three-col .nav-col:last-child a {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .main-three-col .nav-col:first-child a:hover,
+  .main-three-col .nav-col:last-child a:hover {
+    padding: 10px 20px;
+  }
+
+  /* Separar los dos menús */
+  .main-three-col .nav-col:last-child {
+    border-top: 1px solid rgba(197,160,89,.1);
+  }
+
+  .golden-letters img {
+    width: clamp(28px, 6vw, 42px);
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .sections {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sections a {
+    text-align: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(197,160,89,.08);
+  }
+  .sections a:not(:last-child)::after { display: none; }
+  .sections a:last-child {
+    border-bottom: none;
+  }
+
+  .hero-cta {
+    padding: 10px 20px;
+    gap: 8px;
+  }
+  .hero-cta span {
+    font-size: 12px;
+    letter-spacing: .06em;
+  }
+}
+
+</style>
